@@ -37,6 +37,19 @@ function resetSelected() {
   });
 }
 
+// Reset Score & playerChoice/computerChoice
+function resetAll() {
+  playerScoreNumber = 0;
+  computerScoreNumber = 0;
+  resetSelected();
+  playerScoreEl.textContent = playerScoreNumber;
+  computerScoreEl.textContent = computerScoreNumber;
+  computerChoiceEl.textContent = ' --- Choice';
+  playerChoiceEl.textContent = ' --- Choice';
+  resultText.textContent = '';
+  // reset score remove hcoice and result text reset icon
+}
+
 // Random computer choice
 function computerRandomChoice() {
   const computerChoiceNumber = Math.random();
@@ -83,7 +96,6 @@ function displayComputerChoice() {
 
 // Check result, increase scores, update result text
 function updateScore(playerChoice) {
-  console.log(playerChoice, computerChoice)
   if (playerChoice === computerChoice) {
     resultText.textContent = "It's a tie."; 
   } else {
@@ -139,4 +151,5 @@ function select(playerChoice) {
   }
 }
 
-
+// On startup, set initial values
+resetAll();
